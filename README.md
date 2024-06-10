@@ -24,11 +24,12 @@ WISHLIST
 	- user_id ---> references users(id)
 	- product_id ---> references users(id)
 	- constraint user_id and product_id combo is 
-	
 CART
 	- id UUID
 	- user_id ---> references users(id)
 	- product_id ---> references users(id)
+	
+
 	
 
 	
