@@ -6,6 +6,7 @@ USERS
 	- id UUID
 	- username (string) unique
 	- password (string)
+	- isAdmin (Boolean) default false
 PRODUCTS
 	- id UUID
 	- name (string)
@@ -28,4 +29,6 @@ CART
 	- id UUID
 	- user_id ---> references users(id)
 	- product_id ---> references users(id)
+	
+
 	
