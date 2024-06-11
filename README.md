@@ -23,7 +23,7 @@ FAVORITES
 	- id UUID	
 	- user_id ---> references users(id)
 	- product_id ---> references users(id)
-	- constraint user_id and product_id combo is 	  unique
+	- constraint user_id and product_id combo is unique
 WISHLIST
 	- id UUID
 	- user_id ---> references users(id)
