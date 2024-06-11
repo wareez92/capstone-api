@@ -7,9 +7,16 @@ USERS
 	- username (string) unique
 	- password (string)
 	- isAdmin (Boolean) default false
+	- isBanned (Boolean) default false
+	- address (string)
 PRODUCTS
 	- id UUID
 	- name (string)
+	- price (integer)
+	- details (string)
+	- quantity (integer)
+	- reviews (string)
+	- outOfStock (Boolean) default false
 ORDERS
 	- id UUID
 	- user_id ---> references users(id)
@@ -28,7 +35,9 @@ CART
 	- id UUID
 	- user_id ---> references users(id)
 	- product_id ---> references users(id)
+
 	
+
 
 	
 
