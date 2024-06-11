@@ -23,7 +23,7 @@ FAVORITES
 	- id UUID	
 	- user_id ---> references users(id)
 	- product_id ---> references users(id)
-	- constraint user_id and product_id combo is unique
+	- constraint user_id and product_id combo is 	  unique
 WISHLIST
 	- id UUID
 	- user_id ---> references users(id)
@@ -38,28 +38,28 @@ CART
 	    o------ DATA LAYER FUNCTIONS ------o
 
 CREATE
-- createTables
-- createUser
-- createProduct
-- createWishlist
-- createOrder
-- createFavorite
+	- createTables
+	- createUser
+	- createProduct
+	- createWishlist
+	- createOrder
+	- createFavorite
 
 READ
-- fetchUsers
-- fetchProducts
-- fetchWishlist
-- fetchOrders
-- fetchFavorites
+	- fetchUsers
+	- fetchProducts
+	- fetchWishlist
+	- fetchOrders
+	- fetchFavorites
 
 UPDATE
-- banUser
-- authorizeUser
+	- banUser
+	- authorizeUser
 
 DELETE
-- deleteUser
-- deleteProduct
-- deleteWishlist
-- deleteOrder
-- deleteFavorite
+	- deleteUser
+	- deleteProduct
+	- deleteWishlist
+	- deleteOrder
+	- deleteFavorite
 
