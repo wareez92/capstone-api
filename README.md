@@ -1,5 +1,3 @@
-# capstone-api
-
 	    o------ DATABASE SCHEMA ------o
 
 USERS
@@ -8,7 +6,7 @@ USERS
 	- password (string)
 	- isAdmin (Boolean) default false
 	- isBanned (Boolean) default false
-	- address (string)
+	- address 
 PRODUCTS
 	- id UUID
 	- name (string)
@@ -25,7 +23,7 @@ FAVORITES
 	- id UUID	
 	- user_id ---> references users(id)
 	- product_id ---> references users(id)
-	- constraint user_id and product_id combo is unique
+	- constraint user_id and product_id combo is 	  unique
 WISHLIST
 	- id UUID
 	- user_id ---> references users(id)
@@ -36,9 +34,32 @@ CART
 	- user_id ---> references users(id)
 	- product_id ---> references users(id)
 
-	
 
+	    o------ DATA LAYER FUNCTIONS ------o
 
-	
+CREATE
+- createTables
+- createUser
+- createProduct
+- createWishlist
+- createOrder
+- createFavorite
 
-	
+READ
+- fetchUsers
+- fetchProducts
+- fetchWishlist
+- fetchOrders
+- fetchFavorites
+
+UPDATE
+- banUser
+- authorizeUser
+
+DELETE
+- deleteUser
+- deleteProduct
+- deleteWishlist
+- deleteOrder
+- deleteFavorite
+
