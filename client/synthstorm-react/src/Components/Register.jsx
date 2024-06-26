@@ -12,6 +12,9 @@ export default function Register() {
     };
   }, []);
 
+
+// Return
+
   return (
     <form onSubmit={postPup}>
       <label>Register</label>
