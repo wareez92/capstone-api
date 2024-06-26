@@ -13,7 +13,7 @@ export default function Register() {
   }, []);
 
 
-// Return
+// Return.
 // Return2
 
   return (
