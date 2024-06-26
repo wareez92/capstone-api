@@ -156,7 +156,7 @@ const init = async () => {
 
   const port = process.env.PORT || 3000;
   app.listen(port, () => {
-    console.log(`Listening on port {port}`);
+    console.log(`Listening on port ${port}`);
   });
 };
 
@@ -247,7 +247,15 @@ app.post("/api/auth/login", async (req, res, next) => {
   }
 });
 
-app.post("/api/", async (req, res, next) => {});
+app.post("/api/register/user", async (req, res, next) => {
+  console.log("route hit");
+  try {
+    res.send(await createUser(req.body));
+  } catch (ex) {
+    next(ex);
+  }
+});
+
 app.post("/api/", async (req, res, next) => {});
 app.post("/api/", async (req, res, next) => {});
 app.post("/api/", async (req, res, next) => {});
