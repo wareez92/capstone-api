@@ -14,7 +14,7 @@ export default function Register() {
 
 
 // Return.
-// Return2
+// Return2.
 
   return (
     <form onSubmit={postPup}>
