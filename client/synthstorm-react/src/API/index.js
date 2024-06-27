@@ -20,8 +20,10 @@ const fetchSingleProduct = async (productId) => {
     if (result.error) throw result.error;
     return result;
   } catch (ex) {
-    console.error("Uh oh, trouble fetching products!", ex);
+    console.error("Uh oh, trouble fetching product!", ex);
   }
 };
+
+
 
 export { fetchAllProducts, fetchSingleProduct };

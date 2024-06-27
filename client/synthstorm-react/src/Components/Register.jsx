@@ -1,24 +1,30 @@
 import { useEffect, useState } from "react";
 
 export default function Register() {
-  const [username, setUsername] = useState({});
-  const [password, setPassword] = useState({});
-  const [address, setAddress] = useState({});
-  const [phone, setPhone] = useState({});
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
 
-  useEffect(() => {
-    const registerUser = async () => {
-      const user = await fetch("", {});
-    };
-  }, []);
-
-
-// Return.
-// Return2.
+  const registerUser = async () => {
+    try {
+      const respone = await fetch(`/api/register/user`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(FormData),
+      });
+      const result = await respone.json();
+      return result;
+    } catch (ex) {
+      console.error("failed to register user", ex);
+    }
+  };
 
   return (
-    <form onSubmit={postPup}>
-      <label>Register</label>
+    <form onSubmit={registerUser}>
+      <h4>Register</h4>
       <label>Username: </label>
       <input
         type="text"
@@ -34,17 +40,14 @@ export default function Register() {
       />
 
       <label>Address: </label>
-      <select
+      <input
         value={address}
         onChange={(event) => setAddress(event.target.value)}
-      >
-        <option value="field">field</option>
-        <option value="bench">bench</option>
-      </select>
+      />
 
       <label>Phone: </label>
       <input
-        type="url"
+        type="text"
         value={phone}
         onChange={(event) => setPhone(event.target.value)}
       />

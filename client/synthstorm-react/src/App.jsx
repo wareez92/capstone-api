@@ -5,6 +5,7 @@ import Login from "./Components/Login";
 import { Routes, Route } from "react-router-dom";
 import Account from "./Components/Account";
 import Home from "./Components/Home";
+import Register from "./Components/Register";
 
 function App() {
   const [token, setToken] = useState({});
@@ -24,7 +25,16 @@ function App() {
           path="/account"
           element={<Account token={token} user={user} />}
         />
-        <Route path="/products/:productId" element={<Product token={token} user={user} />} />
+        <Route
+          path="/products/:productId"
+          element={<Product token={token} user={user} />}
+        />
+        <Route
+          path="/register"
+          element={
+            <Register setToken={setToken} token={token} setUser={setUser} />
+          }
+        />
       </Routes>
     </>
   );
