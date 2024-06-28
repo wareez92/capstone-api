@@ -7,34 +7,23 @@ import Account from "./Components/Account";
 import Home from "./Components/Home";
 import Register from "./Components/Register";
 
-function App() {
-  const [token, setToken] = useState({});
+function App({ setFilteredProducts, setProducts, products, filteredProducts }) {
   const [user, setUser] = useState({});
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home token={token} user={user} />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/login"
-          element={
-            <Login setToken={setToken} token={token} setUser={setUser} />
-          }
+          element={<Login setUser={setUser} user={user} />}
         />
         <Route
           path="/account"
-          element={<Account token={token} user={user} />}
+          element={<Account user={user} setUser={setUser} />}
         />
-        <Route
-          path="/products/:productId"
-          element={<Product token={token} user={user} />}
-        />
-        <Route
-          path="/register"
-          element={
-            <Register setToken={setToken} token={token} setUser={setUser} />
-          }
-        />
+        <Route path="/products/:productId" element={<Product user={user} />} />
+        <Route path="/register" element={<Register setUser={setUser} />} />
       </Routes>
     </>
   );

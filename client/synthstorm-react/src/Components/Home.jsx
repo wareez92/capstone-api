@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
 import { fetchAllProducts } from "../API";
+import Login from "./Login";
 
-export default function Home({ token, user }) {
+export default function Home() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -49,6 +50,7 @@ export default function Home({ token, user }) {
 
   return (
     <>
+      <Login />
       <div>
         <label key={products.id}>Quick Search </label>
         <input onChange={onInputChange} />

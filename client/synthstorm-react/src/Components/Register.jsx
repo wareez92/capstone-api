@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -6,16 +7,31 @@ export default function Register() {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
 
-  const registerUser = async () => {
+  const navigate = useNavigate();
+
+  const registerUser = async (event) => {
+    event.preventDefault();
     try {
-      const respone = await fetch(`/api/register/user`, {
+      const response = await fetch(`/api/register/user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(FormData),
+        body: JSON.stringify({
+          username: username,
+          password: password,
+          address: address,
+          phone: phone,
+        }),
       });
-      const result = await respone.json();
+      const result = await response.json();
+      if (response.ok) {
+        window.localStorage.setItem("token", result.token);
+        navigate("/login");
+      } else {
+        throw result;
+      }
+      console.log(result);
       return result;
     } catch (ex) {
       console.error("failed to register user", ex);
@@ -41,6 +57,7 @@ export default function Register() {
 
       <label>Address: </label>
       <input
+        type="text"
         value={address}
         onChange={(event) => setAddress(event.target.value)}
       />

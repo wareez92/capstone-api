@@ -1,4 +1,7 @@
 export default function ProductCard({ product }) {
+
+
+
   return (
     <div key={product.id}>
       <img src={product.img} />

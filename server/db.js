@@ -62,8 +62,7 @@ const createTables = async () => {
                     );
                     CREATE TABLE cart(
                         id UUID PRIMARY KEY,
-                        user_id UUID REFERENCES users(id) NOT NULL,
-                        product_id UUID REFERENCES products(id) NOT NULL
+                        user_id UUID REFERENCES users(id) NOT NULL
                     );
             `;
   await client.query(SQL);
@@ -83,6 +82,15 @@ const createUser = async ({ username, password, address, phone }) => {
     address,
     phone,
   ]);
+  return response.rows[0];
+};
+
+// createCart
+
+const createCart = async ({ user_id }) => {
+  const SQL = ` INSERT INTO cart (id, user_id)
+                VALUES ($1, $2) RETURNING *`;
+  const response = await client.query(SQL, [uuid.v4(), user_id]);
   return response.rows[0];
 };
 
@@ -200,6 +208,14 @@ const findUserByToken = async (token) => {
   return response.rows[0];
 };
 
+// createUserandGenerateToken
+
+const createUserAndGenerateToken = async ({ username, password, address, phone }) => {
+  const user = await createUser({ username, password, address, phone });
+  const token = jwt.sign({ id: user.id }, JWT);
+  return { token };
+};
+
 // READ
 
 // fetchUsers
@@ -248,7 +264,7 @@ const fetchOrders = async () => {
 
 // fetchFavorites
 
-const fetchFavorites = async () => {
+const fetchFavorites = async ({ user_id }) => {
   const SQL = ` SELECT * FROM favorites`;
   const response = await client.query(SQL);
   return response.rows;
@@ -256,10 +272,10 @@ const fetchFavorites = async () => {
 
 // fetchCart
 
-const fetchCart = async () => {
+const fetchCart = async ({ user_id }) => {
   const SQL = ` SELECT * FROM cart 
-                WHERE id = $1`;
-  const response = await client.query(SQL, [id]);
+                WHERE user_id = $1`;
+  const response = await client.query(SQL, [id_]);
   return response.rows;
 };
 
@@ -364,4 +380,5 @@ module.exports = {
   authenticate,
   findUserByToken,
   fetchProduct,
+  createUserAndGenerateToken,
 };

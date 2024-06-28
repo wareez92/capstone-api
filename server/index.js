@@ -25,6 +25,7 @@ const {
   authenticate,
   findUserByToken,
   fetchProduct,
+  createUserAndGenerateToken,
 } = require("./db");
 
 // import express and store in app
@@ -184,6 +185,7 @@ const isLoggedIn = async (req, res, next) => {
 //
 
 app.get("/api/auth/me", isLoggedIn, async (req, res, next) => {
+  console.log("route hit");
   try {
     res.send(req.users);
   } catch (error) {
@@ -250,13 +252,15 @@ app.post("/api/auth/login", async (req, res, next) => {
 app.post("/api/register/user", async (req, res, next) => {
   console.log("route hit");
   try {
-    res.send(await createUser(req.body));
+    res.send(await createUserAndGenerateToken(req.body));
+    console.log("o----Users----o");
+    console.log(await fetchUsers());
   } catch (ex) {
     next(ex);
   }
 });
 
-app.post("/api/", async (req, res, next) => {});
+app.post("/api/cart/item", async (req, res, next) => {});
 app.post("/api/", async (req, res, next) => {});
 app.post("/api/", async (req, res, next) => {});
 app.post("/api/", async (req, res, next) => {});

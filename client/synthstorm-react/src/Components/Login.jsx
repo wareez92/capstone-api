@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-const Login = ({ token, setToken }) => {
+const Login = ({ setUser, user }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -22,13 +20,8 @@ const Login = ({ token, setToken }) => {
         }),
       });
       const data = await response.json();
-      console.log("data", data.token);
-
-      if (data.token) {
-        setToken(data.token);
-      } else {
-        console.error("Login Error!");
-      }
+      console.log("data", data);
+      window.localStorage.setItem("token", data.token);
     } catch (error) {
       console.error(error);
     }
@@ -36,17 +29,24 @@ const Login = ({ token, setToken }) => {
   };
 
   const loginWithToken = async () => {
-    const response = await fetch("/api/auth/me", {
-      headers: {
-        authorization: `${token}`,
-      },
-    });
-    const json = await response.json();
-    if (response.ok) {
-      setUser(json);
-      navigate("/Account");
-    } else {
-      console.log(error);
+    try {
+      const response = await fetch("/api/auth/me", {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: window.localStorage.getItem(`token`),
+        },
+      });
+      const json = await response.json();
+      if (response.ok) {
+        setUser(json);
+      } else {
+        console.log(error);
+      }
+      if (user) {
+        navigate("/account");
+      }
+    } catch (error) {
+      alert("invalid credentials");
     }
   };
 
@@ -66,12 +66,14 @@ const Login = ({ token, setToken }) => {
         <input
           type="name"
           placeholder="name"
+          required
           value={username}
           onChange={nameHandler}
         ></input>
         <input
           type="password"
           placeholder="password"
+          required
           value={password}
           onChange={passwordHandler}
         ></input>
