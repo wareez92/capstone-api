@@ -264,7 +264,7 @@ app.post("/api/users/:userId/cart/:productId", async (req, res, next) => {
   console.log("route hit");
   try {
     const { user_id, product_id } = req.params;
-    res.send(await createCartItem({ user_id, product_id }));
+    res.send(await createCartItem({ user_id: userId, product_id: productId }));
     console.log("o----Carts----o");
     console.log(await fetchCart());
   } catch (ex) {
