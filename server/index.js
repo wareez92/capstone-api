@@ -37,6 +37,19 @@ const app = express();
 
 app.use(express.json());
 
+// deployment
+
+const path = require("path");
+const { send } = require("process");
+app.get("/", (req, res) =>
+  res.sendFile(path.join(__dirname, "../synthstorm-react/dist/index.html"))
+);
+
+app.use(
+  "/assets",
+  express.static(path.join(__dirname, "../synthstorm-react/dist/assets"))
+);
+
 // init function
 
 const init = async () => {
