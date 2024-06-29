@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = ({ setUser, user }) => {
+  console.log(setUser);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -22,34 +23,30 @@ const Login = ({ setUser, user }) => {
       const data = await response.json();
       console.log("data", data);
       window.localStorage.setItem("token", data.token);
+      loginWithToken();
     } catch (error) {
       console.error(error);
     }
-    loginWithToken();
   };
 
   const loginWithToken = async () => {
+    const token = window.localStorage.getItem(`token`);
     try {
       const response = await fetch("/api/auth/me", {
         headers: {
           "Content-Type": "application/json",
-          authorization: window.localStorage.getItem(`token`),
+          authorization: token,
         },
       });
       const json = await response.json();
-      if (response.ok) {
-        setUser(json);
-      } else {
-        console.log(error);
-      }
-      if (user) {
-        navigate("/account");
-      }
+      console.log(json);
+      setUser(json);
+      navigate("/account");
     } catch (error) {
+      console.error("Failed to fetch user details", error);
       alert("invalid credentials");
     }
   };
-
   const nameHandler = (event) => {
     console.log("Event --->", event.target.value);
     setUsername(event.target.value);

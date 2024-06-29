@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
-import { fetchAllProducts } from "../API";
 import Login from "./Login";
+import { fetchAllProducts } from "../../API";
 
-export default function Home() {
+export default function Home({user}) {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 

@@ -260,7 +260,18 @@ app.post("/api/register/user", async (req, res, next) => {
   }
 });
 
-app.post("/api/cart/item", async (req, res, next) => {});
+app.post("/api/users/:userId/cart/:productId", async (req, res, next) => {
+  console.log("route hit");
+  try {
+    const { user_id, product_id } = req.params;
+    res.send(await createCartItem({ user_id, product_id }));
+    console.log("o----Carts----o");
+    console.log(await fetchCart());
+  } catch (ex) {
+    next(ex);
+  }
+});
+
 app.post("/api/", async (req, res, next) => {});
 app.post("/api/", async (req, res, next) => {});
 app.post("/api/", async (req, res, next) => {});

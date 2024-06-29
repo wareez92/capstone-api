@@ -1,7 +1,5 @@
 // fetchAll
 
-import { fetchCart } from "../../../../server/db";
-
 const fetchAllProducts = async () => {
   try {
     const response = await fetch(`/api/product`);
@@ -26,11 +24,15 @@ const fetchSingleProduct = async (productId) => {
   }
 };
 
-// addToCart
-
-const addToCart = async () => {
+const addToCart = async (productId, userId) => {
   try {
-    const response = await fetchCart(``, {});
+    const response = await fetch(`/api/users/${userId}/cart/${productId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: window.localStorage.getItem(`token`),
+      },
+    });
     const result = await response.json();
     if (result.error) throw result.error;
     return result;

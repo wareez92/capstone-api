@@ -62,7 +62,8 @@ const createTables = async () => {
                     );
                     CREATE TABLE cart(
                         id UUID PRIMARY KEY,
-                        user_id UUID REFERENCES users(id) NOT NULL
+                        user_id UUID REFERENCES users(id) NOT NULL,
+                        product_id UUID REFERENCES products(id) NOT NULL
                     );
             `;
   await client.query(SQL);
@@ -133,7 +134,7 @@ const createWishlistItem = async ({ user_id, product_id }) => {
 // createCartItem
 
 const createCartItem = async ({ user_id, product_id }) => {
-  const SQL = ` INSERT INTO cart (id, user_id, proudct_id)
+  const SQL = ` INSERT INTO cart (id, user_id, product_id)
                 VALUES ($1, $2, $3)
                 RETURNING *`;
   const response = await client.query(SQL, [uuid.v4(), user_id, product_id]);
@@ -205,12 +206,18 @@ const findUserByToken = async (token) => {
 
     throw error;
   }
+  console.log(response.rows[0]);
   return response.rows[0];
 };
 
 // createUserandGenerateToken
 
-const createUserAndGenerateToken = async ({ username, password, address, phone }) => {
+const createUserAndGenerateToken = async ({
+  username,
+  password,
+  address,
+  phone,
+}) => {
   const user = await createUser({ username, password, address, phone });
   const token = jwt.sign({ id: user.id }, JWT);
   return { token };
