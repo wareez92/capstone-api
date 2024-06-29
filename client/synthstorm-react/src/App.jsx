@@ -22,11 +22,11 @@ function App({
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
         <Route
           path="/login"
           element={<Login setUser={setUser} user={user} />}
         />
+        <Route path="/" element={<Home user={user} />} />
         <Route
           path="/account"
           element={<Account user={user} setUser={setUser} />}

@@ -24,7 +24,9 @@ const fetchSingleProduct = async (productId) => {
   }
 };
 
-const addToCart = async (productId, userId) => {
+// addToCart
+
+const addToCart = async (userId, productId) => {
   try {
     const response = await fetch(`/api/users/${userId}/cart/${productId}`, {
       method: "POST",

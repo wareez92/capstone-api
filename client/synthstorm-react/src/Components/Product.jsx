@@ -22,13 +22,12 @@ export default function Product({ user }) {
   }, []);
 
   const addCart = async () => {
-    console.log(productId, user.id);
-
-    const cartItem = await addToCart(productId, user.id);
-    // if (cartItem) {
-    //   setCart((prevCart) => [...prevCart, cartItem]);
-    //   console.log("Added Item:", cartItem);
-    // }
+    console.log("product id:", productId, "user id:", user.id);
+    const cartItem = await addToCart(user.id, productId);
+    if (cartItem) {
+      setCart([...cart, cartItem]);
+      console.log("Added Item:", cartItem);
+    }
   };
 
   if (loading) return <h3>Loading...</h3>;

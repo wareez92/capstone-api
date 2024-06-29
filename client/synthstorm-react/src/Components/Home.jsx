@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Login from "./Login";
 import { fetchAllProducts } from "../../API";
 
-export default function Home({user}) {
+export default function Home({ user }) {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -50,7 +50,6 @@ export default function Home({user}) {
 
   return (
     <>
-      <Login />
       <div>
         <label key={products.id}>Quick Search </label>
         <input onChange={onInputChange} />

@@ -42,7 +42,9 @@ app.use(express.json());
 const path = require("path");
 const { send } = require("process");
 app.get("/", (req, res) =>
-  res.sendFile(path.join(__dirname, "../client/synthstorm-react/dist/index.html"))
+  res.sendFile(
+    path.join(__dirname, "../client/synthstorm-react/dist/index.html")
+  )
 );
 
 app.use(
@@ -276,11 +278,19 @@ app.post("/api/register/user", async (req, res, next) => {
 app.post("/api/users/:userId/cart/:productId", async (req, res, next) => {
   console.log("route hit");
   try {
-    const { user_id, product_id } = req.params;
-    res.send(await createCartItem({ user_id: userId, product_id: productId }));
+    const { userId, productId } = req.params;
+    console.log("userId:", userId, "productId:", productId); // Log the IDs
+
+    res.send(
+      await createCartItem({
+        user_id: userId,
+        product_id: productId,
+      })
+    );
     console.log("o----Carts----o");
     console.log(await fetchCart());
   } catch (ex) {
+    console.error("Error in route:", ex); // Log the error
     next(ex);
   }
 });
