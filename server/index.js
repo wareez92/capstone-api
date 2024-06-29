@@ -42,12 +42,12 @@ app.use(express.json());
 const path = require("path");
 const { send } = require("process");
 app.get("/", (req, res) =>
-  res.sendFile(path.join(__dirname, "../synthstorm-react/dist/index.html"))
+  res.sendFile(path.join(__dirname, "../client/synthstorm-react/dist/index.html"))
 );
 
 app.use(
   "/assets",
-  express.static(path.join(__dirname, "../synthstorm-react/dist/assets"))
+  express.static(path.join(__dirname, "../client/synthstorm-react/dist/assets"))
 );
 
 // init function
