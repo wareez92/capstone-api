@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { fetchSingleProduct } from "../../API";
 import { addToCart } from "../../API";
@@ -8,6 +8,7 @@ export default function Product({ user }) {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
+  const navigate = useNavigate();
 
   const { productId } = useParams();
 
@@ -40,6 +41,8 @@ export default function Product({ user }) {
       </div>
       <div>
         <button onClick={addCart}>Add to Cart</button>
+        <button onClick={() => navigate("/")}>Continue Shopping</button>
+        <button>Checkout</button>
       </div>
     </>
   );
