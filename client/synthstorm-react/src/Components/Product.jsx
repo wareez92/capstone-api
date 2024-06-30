@@ -34,6 +34,13 @@ export default function Product({ user }) {
   if (loading) return <h3>Loading...</h3>;
   if (!product) return <h3>404: Product not found</h3>;
 
+  const priceMultiply = async () => {
+    // product.price *= event.target.value;
+    product.quantity = product.quantity;
+    product.quantity -= event.target.value;
+
+  };
+
   return (
     <>
       <div>
@@ -43,7 +50,13 @@ export default function Product({ user }) {
       <div>
         <button onClick={addCart}>Add to Cart</button>
         <label> Quantity : </label>
-        <input type="number" step="1" max={product.quantity} min="0" />
+        <input
+          type="number"
+          step="1"
+          max={product.quantity}
+          min="0"
+          onChange={priceMultiply}
+        />
         <button onClick={() => navigate("/account")}>Continue Shopping</button>
       </div>
     </>

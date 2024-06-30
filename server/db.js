@@ -136,7 +136,7 @@ const createCartItem = async ({ user_id, product_id }) => {
   const SQL = ` INSERT INTO cart (user_id, product_id)
                 VALUES ($1, $2)
                 RETURNING *`;
-  const response = await client.query(SQL, [ user_id, product_id]);
+  const response = await client.query(SQL, [user_id, product_id]);
   return response.rows[0];
 };
 
@@ -280,7 +280,8 @@ const fetchFavorites = async ({ user_id }) => {
 
 const fetchCart = async ({ user_id }) => {
   const SQL = ` SELECT * FROM cart 
-                WHERE user_id = $1`;
+                JOIN products
+                ON cart.product_id = products.id`;
   const response = await client.query(SQL, [user_id]);
   return response.rows;
 };
