@@ -37,14 +37,14 @@ export default function Product({ user }) {
   return (
     <>
       <div>
+        <div></div>
         <ProductCard key={product.id} product={product} />
       </div>
       <div>
         <button onClick={addCart}>Add to Cart</button>
         <label> Quantity : </label>
-        <input type="number" step="1" max={product.quantity} min="0"/>
-        <button onClick={() => navigate("/")}>Continue Shopping</button>
-        <button>Checkout</button>
+        <input type="number" step="1" max={product.quantity} min="0" />
+        <button onClick={() => navigate("/account")}>Continue Shopping</button>
       </div>
     </>
   );
