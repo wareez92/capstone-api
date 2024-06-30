@@ -288,7 +288,7 @@ app.post("/api/users/:userId/cart/:productId", async (req, res, next) => {
       })
     );
     console.log("o----Carts----o");
-    console.log(await fetchCart());
+    console.log(await fetchCart(userId));
   } catch (ex) {
     console.error("Error in route:", ex); // Log the error
     next(ex);

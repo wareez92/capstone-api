@@ -41,6 +41,8 @@ export default function Product({ user }) {
       </div>
       <div>
         <button onClick={addCart}>Add to Cart</button>
+        <label> Quantity : </label>
+        <input type="number" step="1" max={product.quantity} min="0"/>
         <button onClick={() => navigate("/")}>Continue Shopping</button>
         <button>Checkout</button>
       </div>

@@ -6,7 +6,7 @@ export default function Account({ setUser, user }) {
   const logoutUser = () => {
     window.localStorage.removeItem(`token`);
     setUser({});
-    navigate("/");
+    navigate("/login");
   };
   console.log(user);
 
