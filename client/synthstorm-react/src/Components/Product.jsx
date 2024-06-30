@@ -27,7 +27,7 @@ export default function Product({ user }) {
     const cartItem = await addToCart(user.id, productId);
     if (cartItem) {
       setCart([...cart, cartItem]);
-      console.log("Added Item:", cartItem);
+      console.log("Added Item:", cartItem, cart);
     }
   };
 

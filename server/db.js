@@ -282,7 +282,7 @@ const fetchFavorites = async ({ user_id }) => {
 const fetchCart = async ({ user_id }) => {
   const SQL = ` SELECT * FROM cart 
                 WHERE user_id = $1`;
-  const response = await client.query(SQL, [id_]);
+  const response = await client.query(SQL, [id]);
   return response.rows;
 };
 
