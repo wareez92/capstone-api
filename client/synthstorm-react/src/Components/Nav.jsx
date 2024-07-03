@@ -13,11 +13,18 @@ export default function Nav({ user, loggedIn, setLoggedIn }) {
     setLoggedIn(false);
     setUser({});
   };
+
+  const openMenu = (event) => {
+    event.preventDefault();
+    const menu = document.getElementById("main-menu");
+    menu.classList.toggle("is-open");
+  };
+
   console.log(user);
   return (
     <>
       <nav className="menu" id="main-menu">
-        <button className="menu-toggle" id="toggle-menu">
+        <button className="menu-toggle" id="toggle-menu" onClick={openMenu}>
           toggle menu
         </button>
         <div className="menu-dropdown">

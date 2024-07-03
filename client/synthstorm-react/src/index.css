@@ -48,7 +48,7 @@ a:active {
 
 .menu-toggle {
   position: absolute;
-  top: -1.2em;
+  top: -1em;
   right: 0.1em;
 
   border: 0;
@@ -65,5 +65,21 @@ a:active {
 
 .menu-toggle::after {
   position: absolute;
-  top: 0.2em;
+  top: 0.5em;
+  left: 0.2em;
+  display: block;
+  content: "\2261";
+  text-indent: 0;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0;
+}
+
+.menu.is-open .menu-dropdown {
+  display: block;
 }
