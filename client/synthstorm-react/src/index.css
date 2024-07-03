@@ -330,3 +330,20 @@ a:active {
     scale: 100%;
   }
 }
+
+.cart-header,
+.checkout-header {
+  color: #2c6c69;
+}
+
+.destructive {
+  background: none;
+  border-radius: 0.3em;
+  padding: 0.3em;
+  border: solid 1px #ddd;
+}
+
+.destructive:hover {
+  outline: dotted 1px #2c6c69;
+  outline-offset: 2px;
+}

@@ -24,11 +24,11 @@ export default function Cart({ user }) {
   return (
     <>
       <Nav />
-      <main>
-        <h1>Checkout</h1>
+      <main className="main-cart">
+        <h1 className="checkout-header">Checkout</h1>
         <div className="section-container">
           <section className="my-cart">
-            <h2>My Cart</h2>
+            <h2 className="cart-header">My Cart</h2>
             <table>
               {/*  */}
 
@@ -93,7 +93,7 @@ export default function Cart({ user }) {
           {/*  */}
 
           <section className="summary">
-            <h2>Summary</h2>
+            <h2 className="cart-header">Summary</h2>
             <dl>
               <dt>Number of Items</dt>
               <dd id="itemQty">{}</dd>
