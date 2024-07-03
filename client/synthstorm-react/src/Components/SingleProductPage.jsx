@@ -20,18 +20,18 @@ export default function SingleProductPage({ product }) {
     );
   }
   return (
-    <div key={product.id}>
-      <img src={product.img} />
+    <div className="product-card" key={product.id}>
+      <img className="product-image" src={product.img} />
       <div>
         <h1>{product.name}</h1>
-        <FaHeart />
+        <FaHeart className="heart"/>
       </div>
-      <h3>${product.price}</h3>
-
-      <h3>
+      <h3 className="stock">
         <IoIosPricetag />
         Only {product.quantity} left in stock!{" "}
       </h3>
+      <h3>${product.price}</h3>
+
       <p>{product.details}</p>
       <section></section>
     </div>

@@ -18,6 +18,7 @@ export default function Nav({ user, loggedIn, setLoggedIn }) {
     event.preventDefault();
     const menu = document.getElementById("main-menu");
     menu.classList.toggle("is-open");
+    
   };
 
   console.log(user);

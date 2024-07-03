@@ -43,9 +43,7 @@ export default function Products({ user }) {
     }
     setFilteredProducts(currentProducts);
   };
-  // get value from options element
-  // sort based on price highest or lowest
-  // setFilteredProducts
+
 
   // o----RETURN----o
 
@@ -66,10 +64,13 @@ export default function Products({ user }) {
         </form>
 
         {/*  */}
-
-        {filteredProducts.map((product) => (
-            <ProductCard product={product} />
-        ))}
+        <div className="card-container" >
+          {filteredProducts.map((product) => (
+            <div>
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </div>
       </main>
     </>
   );

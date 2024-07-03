@@ -46,7 +46,7 @@ export default function Product({ user }) {
         <SingleProductPage key={product.id} product={product} />
       </div>
       <div>
-        <button onClick={addCart}>
+        <button className="add-cart" onClick={addCart}>
           <FaShoppingCart />
           Add to Cart
         </button>
