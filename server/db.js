@@ -42,6 +42,7 @@ const createTables = async () => {
                         quantity INTEGER NOT NULL,
                         rating INTEGER, 
                         review VARCHAR(50)
+                        user_id UUID REFERENCES users(id)
                     );
                     CREATE TABLE orders(
                         id UUID PRIMARY KEY,

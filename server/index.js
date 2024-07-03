@@ -26,6 +26,7 @@ const {
   findUserByToken,
   fetchProduct,
   createUserAndGenerateToken,
+  createRating,
 } = require("./db");
 
 // import express and store in app
@@ -316,7 +317,9 @@ app.post("/api/users/:userId/cart/:productId", async (req, res, next) => {
   }
 });
 
-app.post("/api/", async (req, res, next) => {});
+app.post("/api/product/:id/rating", async (req, res, next) => {
+      console.log("route hit")
+});
 app.post("/api/", async (req, res, next) => {});
 app.post("/api/", async (req, res, next) => {});
 app.post("/api/", async (req, res, next) => {});

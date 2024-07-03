@@ -28,6 +28,8 @@ export default function Cart({ user }) {
           <section className="my-cart">
             <h2>My Cart</h2>
             <table>
+              {/*  */}
+
               <thead>
                 <tr>
                   <th>Image</th>
@@ -38,45 +40,65 @@ export default function Cart({ user }) {
                   <th>Remove</th>
                 </tr>
               </thead>
+
+              {/*  */}
+
               <tbody>
                 {cart.map((product) => (
                   <tr key={product.id}>
                     <td>
                       <img src={product.img} width="105" alt={product.name} />
                     </td>
-                    <td>{product.name}</td>
-                    <td>{product.price}</td>
-                    <td>
+                    <td data-name="Item">{product.name}</td>
+                    <td data-name="Price">{product.price}</td>
+                    <td data-name="Quantity">
                       <input
                         name={product.name}
                         type="number"
-                        min="0"
+                        step="1"
                         max={product.quantity}
+                        min="0"
                         value="1"
                       />
                     </td>
-                    <td>{}</td>
-                    <td><button>Delete</button></td>
+                    <td data-name="Total">{}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="destructive"
+                        alt={`remove ${product.name}`}
+                      >
+                        Delete
+                      </button>
+                    </td>
                   </tr>
                 ))}
+
+                {/*  */}
+
                 <tfoot>
                   <tr>
-                    <th></th>
-                    <td></td>
+                    <th colSpan="4" scope="row">
+                      Total :
+                    </th>
+                    <td id="total">{}</td>
                   </tr>
                 </tfoot>
               </tbody>
             </table>
           </section>
-          <section>
-            <h2></h2>
+
+          {/*  */}
+
+          <section className="summary">
+            <h2>Summary</h2>
             <dl>
-              <dt></dt>
-              <dd></dd>
+              <dt>Number of Items</dt>
+              <dd id="itemQty">{}</dd>
             </dl>
             <div>
-              <Link></Link>
-              <Link></Link>
+              <Link to="/orders" className="button primary">Proceed to Checkout</Link>
+              <Link to="/account" className="button secondary">Continue Shopping</Link>
             </div>
           </section>
         </div>

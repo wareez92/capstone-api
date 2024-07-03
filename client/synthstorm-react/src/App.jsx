@@ -4,9 +4,10 @@ import "./App.css";
 import Login from "./Components/Login";
 import { Routes, Route } from "react-router-dom";
 import Account from "./Components/Account";
-import Home from "./Components/Proudcts";
 import Register from "./Components/Register";
 import Cart from "./Components/Cart";
+import Products from "./Components/Proudcts"
+import Orders from "./Components/Orders";
 
 function App({
   setFilteredProducts,
@@ -23,7 +24,7 @@ function App({
     <>
       <Routes>
         <Route path="/" element={<Login setUser={setUser} user={user} />} />
-        <Route path="/home" element={<Home user={user} />} />
+        <Route path="/products" element={<Products user={user} />} />
         <Route
           path="/account"
           element={<Account user={user} setUser={setUser} />}
@@ -34,6 +35,7 @@ function App({
         />
         <Route path="/register" element={<Register setUser={setUser} />} />
         <Route path="/cart" element={<Cart user={user} />} />
+        <Route path="/orders" element={<Orders  />} />
       </Routes>
     </>
   );

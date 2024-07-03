@@ -69,9 +69,7 @@ export default function Home({ user }) {
         {/*  */}
 
         {filteredProducts.map((product) => (
-          <Link to={`/products/${product.id}`} key={product.id}>
             <ProductCard product={product} />
-          </Link>
         ))}
       </div>
     </>
