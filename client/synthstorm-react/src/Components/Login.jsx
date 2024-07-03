@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Nav from "./Nav";
 const Login = ({ setUser, user }) => {
   console.log(setUser);
   const [username, setUsername] = useState("");
@@ -47,6 +47,7 @@ const Login = ({ setUser, user }) => {
       alert("invalid credentials");
     }
   };
+
   const nameHandler = (event) => {
     console.log("Event --->", event.target.value);
     setUsername(event.target.value);
@@ -59,6 +60,7 @@ const Login = ({ setUser, user }) => {
 
   return (
     <>
+      <Nav />
       <form onSubmit={handleSubmit}>
         <input
           type="name"

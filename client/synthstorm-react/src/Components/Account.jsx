@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Home from "./Home";
+import Home from "./Proudcts";
+import Nav from "./Nav";
 
 export default function Account({ setUser, user }) {
   const navigate = useNavigate();

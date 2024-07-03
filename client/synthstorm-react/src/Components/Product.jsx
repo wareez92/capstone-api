@@ -3,6 +3,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { fetchSingleProduct } from "../../API";
 import { addToCart } from "../../API";
+import Nav from "./Nav";
 
 export default function Product({ user }) {
   const [product, setProduct] = useState({});
@@ -25,7 +26,6 @@ export default function Product({ user }) {
   const addCart = async () => {
     console.log("product id:", productId, "user id:", user.id);
     const cartItem = await addToCart(user.id, productId);
-
   };
 
   if (loading) return <h3>Loading...</h3>;
@@ -35,12 +35,12 @@ export default function Product({ user }) {
     // product.price *= event.target.value;
     product.quantity = product.quantity;
     product.quantity -= event.target.value;
-
   };
 
   return (
     <>
       <div>
+        <Nav />
         <div></div>
         <ProductCard key={product.id} product={product} />
       </div>

@@ -4,7 +4,7 @@ import "./App.css";
 import Login from "./Components/Login";
 import { Routes, Route } from "react-router-dom";
 import Account from "./Components/Account";
-import Home from "./Components/Home";
+import Home from "./Components/Proudcts";
 import Register from "./Components/Register";
 import Cart from "./Components/Cart";
 

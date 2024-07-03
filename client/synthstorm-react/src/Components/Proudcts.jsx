@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
 import Login from "./Login";
 import { fetchAllProducts } from "../../API";
+import Nav from "./Nav";
 
 export default function Home({ user }) {
   const [products, setProducts] = useState([]);
@@ -50,6 +51,7 @@ export default function Home({ user }) {
 
   return (
     <>
+      <Nav />
       <div>
         <label key={products.id}>Quick Search </label>
         <input onChange={onInputChange} />
