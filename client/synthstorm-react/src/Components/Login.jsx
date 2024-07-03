@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Nav from "./Nav";
+
+
 const Login = ({ setUser, user }) => {
   console.log(setUser);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(true)
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -38,6 +41,7 @@ const Login = ({ setUser, user }) => {
           authorization: token,
         },
       });
+      setLoggedIn(true)
       const json = await response.json();
       console.log(json);
       setUser(json);
@@ -60,7 +64,7 @@ const Login = ({ setUser, user }) => {
 
   return (
     <>
-      <Nav />
+      <Nav setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
       <form onSubmit={handleSubmit}>
         <input
           type="name"

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { viewCart } from "../../API";
 import { Link } from "react-router-dom";
-
+import { IoIosRemoveCircle } from "react-icons/io";
+import Nav from "./Nav";
 export default function Cart({ user }) {
   const [cart, setCart] = useState([]);
 
@@ -22,6 +23,7 @@ export default function Cart({ user }) {
 
   return (
     <>
+      <Nav />
       <main>
         <h1>Checkout</h1>
         <div className="section-container">
@@ -68,7 +70,7 @@ export default function Cart({ user }) {
                         className="destructive"
                         alt={`remove ${product.name}`}
                       >
-                        Delete
+                        <IoIosRemoveCircle />
                       </button>
                     </td>
                   </tr>
@@ -97,8 +99,12 @@ export default function Cart({ user }) {
               <dd id="itemQty">{}</dd>
             </dl>
             <div>
-              <Link to="/orders" className="button primary">Proceed to Checkout</Link>
-              <Link to="/account" className="button secondary">Continue Shopping</Link>
+              <Link to="/orders" className="button primary">
+                Proceed to Checkout
+              </Link>
+              <Link to="/account" className="button secondary">
+                Continue Shopping
+              </Link>
             </div>
           </section>
         </div>

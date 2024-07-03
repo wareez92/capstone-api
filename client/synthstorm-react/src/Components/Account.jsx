@@ -1,21 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import Home from "./Proudcts";
 import Nav from "./Nav";
+import Products from "./Proudcts";
+import Hero from "./Hero";
 
 export default function Account({ setUser, user }) {
-  const navigate = useNavigate();
-  const logoutUser = () => {
-    window.localStorage.removeItem(`token`);
-    setUser({});
-    navigate("/login");
-  };
-  console.log(user);
-
   return (
     <>
+      <div>
+        <Nav />
+      </div>
+      <Hero />
       <h1>Hi, {user.username}</h1>
-      <button onClick={logoutUser}>Logout</button>
-      <Home />
+      <Products />
     </>
   );
 }

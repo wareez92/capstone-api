@@ -1,10 +1,10 @@
 import StarRating from "./StarRating";
-import { FaHeart, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaHeart } from "react-icons/fa";
 import { IoIosPricetag } from "react-icons/io";
-import SingleProductPage from "./SingleProductPage";
 
-export default function ProductCard({ product }) {
+export default function SingleProductPage({ product }) {
   if (product.quantity === 0) {
     return (
       <div key={product.id}>
@@ -14,30 +14,25 @@ export default function ProductCard({ product }) {
         <h3>${product.price}</h3>
         <h4>Out of stock</h4>
         <section>
+          <FaHeart />
         </section>
       </div>
     );
-
-      
-
   }
   return (
     <div key={product.id}>
-      <Link to={`/products/${product.id}`} key={product.id}>
-        <img src={product.img} />
-      </Link>
+      <img src={product.img} />
       <div>
         <h1>{product.name}</h1>
         <FaHeart />
       </div>
       <h3>${product.price}</h3>
-      <StarRating />
 
       <h3>
-        <IoIosPricetag color="green" />
+        <IoIosPricetag />
         Only {product.quantity} left in stock!{" "}
       </h3>
-
+      <p>{product.details}</p>
       <section></section>
     </div>
   );

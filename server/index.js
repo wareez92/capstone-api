@@ -318,7 +318,13 @@ app.post("/api/users/:userId/cart/:productId", async (req, res, next) => {
 });
 
 app.post("/api/product/:id/rating", async (req, res, next) => {
-      console.log("route hit")
+  console.log("route hit");
+  try {
+    res.send(await createRating([req.params.id, req.body.rating]));
+  } catch (ex) {
+    console.error("Error in route")
+   next(ex)
+}
 });
 app.post("/api/", async (req, res, next) => {});
 app.post("/api/", async (req, res, next) => {});

@@ -6,8 +6,9 @@ import { Routes, Route } from "react-router-dom";
 import Account from "./Components/Account";
 import Register from "./Components/Register";
 import Cart from "./Components/Cart";
-import Products from "./Components/Proudcts"
+import Products from "./Components/Proudcts";
 import Orders from "./Components/Orders";
+import SingleProductPage from "./Components/SingleProductPage";
 
 function App({
   setFilteredProducts,
@@ -35,7 +36,7 @@ function App({
         />
         <Route path="/register" element={<Register setUser={setUser} />} />
         <Route path="/cart" element={<Cart user={user} />} />
-        <Route path="/orders" element={<Orders  />} />
+        <Route path="/orders" element={<Orders />} />
       </Routes>
     </>
   );

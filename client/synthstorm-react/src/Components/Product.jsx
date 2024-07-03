@@ -4,6 +4,8 @@ import ProductCard from "./ProductCard";
 import { fetchSingleProduct } from "../../API";
 import { addToCart } from "../../API";
 import Nav from "./Nav";
+import { FaShoppingCart } from "react-icons/fa";
+import SingleProductPage from "./SingleProductPage";
 
 export default function Product({ user }) {
   const [product, setProduct] = useState({});
@@ -41,11 +43,13 @@ export default function Product({ user }) {
     <>
       <div>
         <Nav />
-        <div></div>
-        <ProductCard key={product.id} product={product} />
+        <SingleProductPage key={product.id} product={product} />
       </div>
       <div>
-        <button onClick={addCart}>Add to Cart</button>
+        <button onClick={addCart}>
+          <FaShoppingCart />
+          Add to Cart
+        </button>
         <label> Quantity : </label>
         <input
           type="number"
@@ -55,7 +59,6 @@ export default function Product({ user }) {
           onChange={priceMultiply}
         />
         <button onClick={() => navigate("/account")}>Continue Shopping</button>
-        <button onClick={() => navigate("/cart")}>View Cart</button>
       </div>
     </>
   );

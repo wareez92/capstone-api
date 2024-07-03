@@ -5,7 +5,7 @@ import Login from "./Login";
 import { fetchAllProducts } from "../../API";
 import Nav from "./Nav";
 
-export default function Home({ user }) {
+export default function Products({ user }) {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -51,8 +51,7 @@ export default function Home({ user }) {
 
   return (
     <>
-      <Nav />
-      <div>
+      <main id="main-account">
         <label key={products.id}>Quick Search </label>
         <input onChange={onInputChange} />
 
@@ -71,7 +70,7 @@ export default function Home({ user }) {
         {filteredProducts.map((product) => (
             <ProductCard product={product} />
         ))}
-      </div>
+      </main>
     </>
   );
 }
