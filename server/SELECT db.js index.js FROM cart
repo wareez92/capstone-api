@@ -1,0 +1,4 @@
+ user_id | product_id | id | img | name | price | details | quantity | rating | review | id | username | password | isadmin | isbanned | address | phone 
+---------+------------+----+-----+------+-------+---------+----------+--------+--------+----+----------+----------+---------+----------+---------+-------
+(0 rows)
+

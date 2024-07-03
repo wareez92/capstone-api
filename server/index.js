@@ -63,110 +63,112 @@ const init = async () => {
 
   // instantiate tables
 
-  await createTables();
+  // await createTables();
 
   // add dummy users
 
-  const [jill, robin, kelechi, Elyran] = await Promise.all([
-    createUser({
-      username: "jill",
-      password: "S3cr3t",
-      address: "555 West nomans str",
-      phone: "1(800)-222-2222",
-    }),
-    createUser({
-      username: "robin",
-      password: "S3cr3t",
-      address: "555 West nomans str",
-      phone: "1(800)-333-3333",
-    }),
-    createUser({
-      username: "kelechi",
-      password: "S3cr3t",
-      address: "555 West nomans str",
-      phone: "1(800)-444-4444",
-    }),
-    createUser({
-      username: "Elyran",
-      password: "S3cr3t",
-      address: "555 West nomans str",
-      phone: "1(800)-555-5555",
-    }),
-  ]);
+  const seedDatabase = async () => {};
 
-  // products
+  // const [jill, robin, kelechi, Elyran] = await Promise.all([
+  //   createUser({
+  //     username: "jill",
+  //     password: "S3cr3t",
+  //     address: "555 West nomans str",
+  //     phone: "1(800)-222-2222",
+  //   }),
+  //   createUser({
+  //     username: "robin",
+  //     password: "S3cr3t",
+  //     address: "555 West nomans str",
+  //     phone: "1(800)-333-3333",
+  //   }),
+  //   createUser({
+  //     username: "kelechi",
+  //     password: "S3cr3t",
+  //     address: "555 West nomans str",
+  //     phone: "1(800)-444-4444",
+  //   }),
+  //   createUser({
+  //     username: "Elyran",
+  //     password: "S3cr3t",
+  //     address: "555 West nomans str",
+  //     phone: "1(800)-555-5555",
+  //   }),
+  // ]);
 
-  const [] = await Promise.all([
-    createProduct({
-      name: "microbrute",
-      img: "https://media.sweetwater.com/m/products/image/09ef4b6b86eNmKtR0UJlzbuShj1e4zpLRU0afa85.jpg?quality=82&width=750&ha=09ef4b6b86eb4bb9",
-      price: 199.99,
-      details: "",
-      quantity: 8,
-    }),
-    createProduct({
-      name: "virus",
-      img: "https://media.sweetwater.com/m/products/image/791b586f8cMIlzf8ZP1kDe0NStdw4h6gIRg9TZfj.jpg?quality=82&width=750&ha=791b586f8c81927c",
-      price: 2929.99,
-      details: "",
-      quantity: 3,
-    }),
-    createProduct({
-      name: "micron",
-      img: "https://media.sweetwater.com/api/i/q-82__w-750__f-webp__ha-2a7e6864b6507588__hmac-dc8fbf74995eb5e447147dbad88a6015a2e5561c/images/items/750/Micron-large.jpg.auto.webp",
-      price: 299.99,
-      details: "",
-      quantity: 4,
-    }),
-    createProduct({
-      name: "microfreak",
-      img: "https://media.sweetwater.com/m/products/image/5596c24efeOZRE6DgDhE5sdjFWqw4e0atlnSfuAb.jpg?quality=82&width=750&ha=5596c24efe511dba",
-      price: 349.99,
-      details: "",
-      quantity: 8,
-    }),
-    createProduct({
-      name: "monologue",
-      img: "https://media.sweetwater.com/m/products/image/5299620bc772QuI7U1iOdjQd3oIkVCWQ9F8O7SUn.jpg?quality=82&width=750&ha=5299620bc75d601d",
-      price: 369.99,
-      details: "",
-      quantity: 6,
-    }),
-    createProduct({
-      name: "hydrasynth",
-      img: "https://media.sweetwater.com/m/products/image/5f260e3842zTojuMrFI194SBttja9tCQ501LN6RR.jpg?quality=82&width=750&ha=5f260e3842b7ac33",
-      price: 599.99,
-      details: "",
-      quantity: 5,
-    }),
-    createProduct({
-      name: "opsix",
-      img: "https://media.sweetwater.com/m/products/image/9b2de4e8d9ZdFTTjl0X3B6hVCU3X0DbsX0VM5Cmm.jpg?quality=82&width=750&ha=9b2de4e8d9840f50",
-      price: 749.99,
-      details: "",
-      quantity: 7,
-    }),
-    createProduct({
-      name: "mininova",
-      img: "https://media.sweetwater.com/m/products/image/fbcef721c79n4bPKOgnwkphyNlCIICz8j74LOPOl.jpg?quality=82&width=750&ha=fbcef721c71b0984",
-      price: 449.99,
-      details: "",
-      quantity: 3,
-    }),
-    createProduct({
-      name: "Bass Station",
-      img: "https://media.sweetwater.com/m/products/image/286064d053BQTTy0J6kjyrJN5rwbKjIb1w1ZAwvP.jpg?quality=82&width=750&ha=286064d05362d6bd",
-      price: 449.99,
-      details: "",
-      quantity: 7,
-    }),
-  ]);
+  // // products
 
-  console.log("o------ TABLES ------o");
-  console.log("---users---");
-  console.log(await fetchUsers());
-  console.log("---products---");
-  console.log(await fetchProducts());
+  // const [] = await Promise.all([
+  //   createProduct({
+  //     name: "microbrute",
+  //     img: "https://media.sweetwater.com/m/products/image/09ef4b6b86eNmKtR0UJlzbuShj1e4zpLRU0afa85.jpg?quality=82&width=750&ha=09ef4b6b86eb4bb9",
+  //     price: 199.99,
+  //     details: "",
+  //     quantity: 8,
+  //   }),
+  //   createProduct({
+  //     name: "virus",
+  //     img: "https://media.sweetwater.com/m/products/image/791b586f8cMIlzf8ZP1kDe0NStdw4h6gIRg9TZfj.jpg?quality=82&width=750&ha=791b586f8c81927c",
+  //     price: 2929.99,
+  //     details: "",
+  //     quantity: 3,
+  //   }),
+  //   createProduct({
+  //     name: "micron",
+  //     img: "https://media.sweetwater.com/api/i/q-82__w-750__f-webp__ha-2a7e6864b6507588__hmac-dc8fbf74995eb5e447147dbad88a6015a2e5561c/images/items/750/Micron-large.jpg.auto.webp",
+  //     price: 299.99,
+  //     details: "",
+  //     quantity: 4,
+  //   }),
+  //   createProduct({
+  //     name: "microfreak",
+  //     img: "https://media.sweetwater.com/m/products/image/5596c24efeOZRE6DgDhE5sdjFWqw4e0atlnSfuAb.jpg?quality=82&width=750&ha=5596c24efe511dba",
+  //     price: 349.99,
+  //     details: "",
+  //     quantity: 8,
+  //   }),
+  //   createProduct({
+  //     name: "monologue",
+  //     img: "https://media.sweetwater.com/m/products/image/5299620bc772QuI7U1iOdjQd3oIkVCWQ9F8O7SUn.jpg?quality=82&width=750&ha=5299620bc75d601d",
+  //     price: 369.99,
+  //     details: "",
+  //     quantity: 6,
+  //   }),
+  //   createProduct({
+  //     name: "hydrasynth",
+  //     img: "https://media.sweetwater.com/m/products/image/5f260e3842zTojuMrFI194SBttja9tCQ501LN6RR.jpg?quality=82&width=750&ha=5f260e3842b7ac33",
+  //     price: 599.99,
+  //     details: "",
+  //     quantity: 5,
+  //   }),
+  //   createProduct({
+  //     name: "opsix",
+  //     img: "https://media.sweetwater.com/m/products/image/9b2de4e8d9ZdFTTjl0X3B6hVCU3X0DbsX0VM5Cmm.jpg?quality=82&width=750&ha=9b2de4e8d9840f50",
+  //     price: 749.99,
+  //     details: "",
+  //     quantity: 7,
+  //   }),
+  //   createProduct({
+  //     name: "mininova",
+  //     img: "https://media.sweetwater.com/m/products/image/fbcef721c79n4bPKOgnwkphyNlCIICz8j74LOPOl.jpg?quality=82&width=750&ha=fbcef721c71b0984",
+  //     price: 449.99,
+  //     details: "",
+  //     quantity: 3,
+  //   }),
+  //   createProduct({
+  //     name: "Bass Station",
+  //     img: "https://media.sweetwater.com/m/products/image/286064d053BQTTy0J6kjyrJN5rwbKjIb1w1ZAwvP.jpg?quality=82&width=750&ha=286064d05362d6bd",
+  //     price: 449.99,
+  //     details: "",
+  //     quantity: 7,
+  //   }),
+  // ]);
+
+  // console.log("o------ TABLES ------o");
+  // console.log("---users---");
+  // console.log(await fetchUsers());
+  // console.log("---products---");
+  // console.log(await fetchProducts());
 
   // create a port and a listener
 
@@ -249,7 +251,16 @@ app.get("/api/users/:id/favorites", isLoggedIn, async (req, res, next) => {
 });
 
 app.get("/api/users/:id/wishlist", async (req, res, next) => {});
-app.get("/api/users/:id/cart", async (req, res, next) => {});
+
+// fetchCart
+
+app.get("/api/users/:user_id/cart/:product_id", async (req, res, next) => {
+  try {
+    res.send(await fetchCart(req.params.user_id, req.params.product_id));
+  } catch (error) {
+    next(ex);
+  }
+});
 
 // POST
 
@@ -275,6 +286,16 @@ app.post("/api/register/user", async (req, res, next) => {
   }
 });
 
+app.get("/api/users/:user_id/cart", isLoggedIn, async (req, res, next) => {
+  try {
+    res.send(await fetchCart(req.params.user_id));
+  } catch (ex) {
+    next(ex);
+  }
+});
+
+// postCart
+
 app.post("/api/users/:userId/cart/:productId", async (req, res, next) => {
   console.log("route hit");
   try {
@@ -288,7 +309,7 @@ app.post("/api/users/:userId/cart/:productId", async (req, res, next) => {
       })
     );
     console.log("o----Carts----o");
-    console.log(await fetchCart(userId));
+    console.log(await fetchCart());
   } catch (ex) {
     console.error("Error in route:", ex); // Log the error
     next(ex);

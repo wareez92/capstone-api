@@ -43,4 +43,23 @@ const addToCart = async (userId, productId) => {
   }
 };
 
-export { fetchAllProducts, fetchSingleProduct, addToCart };
+// viewCart
+
+const viewCart = async (userId) => {
+  const token = window.localStorage.getItem(`token`);
+
+  try {
+    const response = await fetch(`/api/users/${userId}/cart`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    const result = await response.json();
+    if (result.error) throw result.error;
+    console.log(result);
+    return result;
+  } catch (ex) {
+    console.error(`Sorry couldn't add to cart`, ex);
+  }
+};
+export { fetchAllProducts, fetchSingleProduct, addToCart, viewCart };

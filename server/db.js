@@ -278,10 +278,13 @@ const fetchFavorites = async ({ user_id }) => {
 
 // fetchCart
 
-const fetchCart = async ({ user_id }) => {
+const fetchCart = async ( user_id ) => {
   const SQL = ` SELECT * FROM cart 
                 JOIN products
-                ON cart.product_id = products.id`;
+                ON cart.product_id = products.id
+                JOIN users
+                ON cart.user_id = users.id
+                WHERE user_id = $1`;
   const response = await client.query(SQL, [user_id]);
   return response.rows;
 };

@@ -25,10 +25,7 @@ export default function Product({ user }) {
   const addCart = async () => {
     console.log("product id:", productId, "user id:", user.id);
     const cartItem = await addToCart(user.id, productId);
-    if (cartItem) {
-      setCart([...cart, cartItem]);
-      console.log("Added Item:", cartItem, cart);
-    }
+
   };
 
   if (loading) return <h3>Loading...</h3>;
@@ -58,6 +55,7 @@ export default function Product({ user }) {
           onChange={priceMultiply}
         />
         <button onClick={() => navigate("/account")}>Continue Shopping</button>
+        <button onClick={() => navigate("/cart")}>View Cart</button>
       </div>
     </>
   );

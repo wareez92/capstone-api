@@ -22,11 +22,8 @@ function App({
   return (
     <>
       <Routes>
-        <Route
-          path="/login"
-          element={<Login setUser={setUser} user={user} />}
-        />
-        <Route path="/" element={<Home user={user} />} />
+        <Route path="/" element={<Login setUser={setUser} user={user} />} />
+        <Route path="/home" element={<Home user={user} />} />
         <Route
           path="/account"
           element={<Account user={user} setUser={setUser} />}
@@ -36,10 +33,7 @@ function App({
           element={<Product user={user} cart={cart} setCart={setCart} />}
         />
         <Route path="/register" element={<Register setUser={setUser} />} />
-        <Route
-          path="/cart"
-          element={<Cart setUser={setUser} cart={cart} setCart={setCart} />}
-        />
+        <Route path="/cart" element={<Cart user={user} />} />
       </Routes>
     </>
   );
