@@ -6,6 +6,7 @@ import { addToCart } from "../../API";
 import Nav from "./Nav";
 import { FaShoppingCart } from "react-icons/fa";
 import SingleProductPage from "./SingleProductPage";
+import { HiShoppingBag } from "react-icons/hi2";
 
 export default function Product({ user }) {
   const [product, setProduct] = useState({});
@@ -58,7 +59,13 @@ export default function Product({ user }) {
           min="0"
           onChange={priceMultiply}
         />
-        <button onClick={() => navigate("/account")}>Continue Shopping</button>
+        <button
+          className="continue-shopping"
+          onClick={() => navigate("/account")}
+        >
+          <HiShoppingBag />
+          Continue Shopping
+        </button>
       </div>
     </>
   );

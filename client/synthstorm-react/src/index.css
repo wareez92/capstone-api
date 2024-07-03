@@ -273,9 +273,60 @@ a:active {
 }
 
 .add-cart {
-    border: none;
-    padding: 1em 2em;
-    background-color: #b81414;
-    border-radius: .3em;
-    color: #fff;
+  margin: 1em;
+  border: none;
+  padding: 1em 2em;
+  background-color: #b81414;
+  border-radius: 0.3em;
+  color: #fff;
+  font-weight: bold;
+}
+
+.add-cart:hover {
+  cursor: pointer;
+  animation-name: buttonGrow;
+  animation-duration: 0.5s;
+}
+
+.add-cart:active {
+  background-color: rgb(108, 17, 17);
+  scale: 105%;
+}
+
+.continue-shopping {
+  margin: 1em;
+  border-radius: 0.3em;
+  border: none;
+  padding: 1em 2em;
+  background-color: rgb(52, 183, 52);
+  color: #fff;
+}
+
+.continue-shopping:hover {
+  cursor: pointer;
+  animation-name: buttonGrow;
+  animation-duration: 0.5s;
+}
+
+.continue-shopping:active {
+  background-color: rgb(52, 183, 52);
+  scale: 105%;
+}
+
+@keyframes buttonGrow {
+  from {
+    scale: 100%;
+  }
+  25% {
+    scale: 110%;
+  }
+  50% {
+    scale: 100%;
+  }
+  75% {
+    scale: 110%;
+  }
+  100% {
+    scale: 100%;
+  }
 }
