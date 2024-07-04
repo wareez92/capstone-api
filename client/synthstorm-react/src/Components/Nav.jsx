@@ -18,7 +18,6 @@ export default function Nav({ user, loggedIn, setLoggedIn }) {
     event.preventDefault();
     const menu = document.getElementById("main-menu");
     menu.classList.toggle("is-open");
-    
   };
 
   console.log(user);
@@ -66,6 +65,9 @@ export default function Nav({ user, loggedIn, setLoggedIn }) {
                 <FaClipboardList />
                 Orders
               </Link>
+            </li>
+            <li>
+              <Link to="/register">Register</Link>
             </li>
           </ul>
         </div>
