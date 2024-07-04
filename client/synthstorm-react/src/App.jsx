@@ -37,6 +37,7 @@ function App({
         <Route path="/register" element={<Register setUser={setUser} />} />
         <Route path="/cart" element={<Cart user={user} />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </>
   );

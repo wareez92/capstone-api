@@ -98,7 +98,7 @@ export default function Cart({ user }) {
               <dt>Number of Items</dt>
               <dd id="itemQty">{}</dd>
             </dl>
-            <div>
+            <div className="cart-buttons">
               <Link to="/orders" className="button primary">
                 Proceed to Checkout
               </Link>
