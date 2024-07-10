@@ -90,17 +90,17 @@ DELETE
 SETUP
 
 1. Clone the repository:
-  Copy code: 
-  git clone https://github.com/your-username/synthstorm.git
+    Copy code: 
+    git clone https://github.com/your-username/synthstorm.git
 
 2. Navigate to the project directory:
 
-  Copy code: 
-  cd synthstorm
+    Copy code: 
+    cd synthstorm
 
 3. Install dependencies:
-  Copy code: 
-  npm install
+    Copy code: 
+    npm install
 
 4. Set up environment variables:
     Create a .env file and add necessary environment variables.
