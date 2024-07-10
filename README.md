@@ -1,7 +1,8 @@
 Synthstorm
 Synthstorm is an e-commerce platform for music equipment, allowing users to browse and purchase products, manage their orders, favorites, wishlist, and cart.
 
-Table of Contents
+TABLE OF CONTENTS
+
 - Features
 - Database Schema
 - Data Layer Functions
@@ -15,14 +16,18 @@ Table of Contents
 - Favorites and wishlist functionalities for user convenience.
 - Cart system for managing ongoing purchases.
 - Database Schema
+  
 USERS
+
 - id: UUID
 - username: String, unique
 - password: String
 - isAdmin: Boolean, default false
 - isBanned: Boolean, default false
 - address: String
+
 PRODUCTS
+
 - id: UUID
 - name: String
 - price: Integer
@@ -30,25 +35,35 @@ PRODUCTS
 - quantity: Integer
 - reviews: String
 - outOfStock: Boolean, default false
+
 ORDERS
+
 -id: UUID
 - user_id: UUID, references users(id)
 - product_id: UUID, references products(id)
+
 FAVORITES
+
 - id: UUID
 - user_id: UUID, references users(id)
 - product_id: UUID, references products(id)
 - Unique constraint: combination of user_id and product_id
+
 WISHLIST
+
 - id: UUID
 - user_id: UUID, references users(id)
 - product_id: UUID, references products(id)
 - Unique constraint: combination of user_id and product_id
+
 CART
+
 - id: UUID
 - user_id: UUID, references users(id)
 - product_id: UUID, references products(id)
-Data Layer Functions
+
+DATA LAYER FUNCTIONS
+
 CREATE
 - createTables: Create all database tables.
 - createUser: Add a new user.
@@ -71,7 +86,8 @@ DELETE
 - deleteWishlist: Remove a wishlist item.
 - deleteOrder: Remove an order.
 - deleteFavorite: Remove a favorite item.
-Setup
+
+SETUP
 
 1. Clone the repository:
   Copy code: 
@@ -93,7 +109,8 @@ Setup
     Copy code: 
     npm run migrate
 
-Usage
+USAGE
+
   Start the development server:
    1. Copy code:
       npm start
