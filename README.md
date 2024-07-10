@@ -96,7 +96,7 @@ SETUP
 2. Navigate to the project directory:
 
     Copy code: 
-    cd synthstorm
+    cd synthstorm-react
 
 3. Install dependencies:
     Copy code: 
