@@ -102,13 +102,6 @@ SETUP
     Copy code: 
     npm install
 
-4. Set up environment variables:
-    Create a .env file and add necessary environment variables.
-
-5. Run database migrations:
-    Copy code: 
-    npm run migrate
-
 USAGE
 
   Start the development server:
