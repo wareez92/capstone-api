@@ -8,7 +8,7 @@ TABLE OF CONTENTS
 - Data Layer Functions
 - Setup
 - Usage
--License
+- License
 - Features
 - User management with authentication and authorization.
 - Product catalog with detailed information.
@@ -38,7 +38,7 @@ PRODUCTS
 
 ORDERS
 
--id: UUID
+- id: UUID
 - user_id: UUID, references users(id)
 - product_id: UUID, references products(id)
 
